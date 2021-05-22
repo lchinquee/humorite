@@ -1,16 +1,29 @@
-// GIVEN I am using a daily planner to create a schedule
-// WHEN I open the planner THEN the current day is displayed at the top of the calendar
-    // id = currentDay
 //Display current date
 var day = moment().format('dddd, MMMM Do');
 $('#currentDay').append(day);
 
-// WHEN I scroll down THEN I am presented with time blocks for standard business hours
-
 
 // WHEN I view the time blocks for that day THEN each time block is color-coded to indicate whether it is in the past, present, or future
-var currentTime = moment().format('LTS');
+//Get current time in 24 hour clock
+var currentTime = moment().format('HH:mm');
 console.log(currentTime);
+
+//Determine if each time block is in the past, present or future
+var startTime = [9, 10, 11 ,12, 13, 14, 15, 16, 17];
+
+$.each(startTime, function(i, value) {
+    timeInitial = startTime[i]++;
+    timeFinal = startTime[i]--;
+
+    console.log(i, value);
+    console.log(timeInitial);
+    console.log(timeFinal);
+});
+
+
+//Check current time every minute
+
+
 
 
 // WHEN I click into a time block THEN I can enter an event
